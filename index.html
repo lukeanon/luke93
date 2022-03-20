@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+    <script> 
+/* Set the width of the side navigation to 310px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "310px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+
+    <style>
+        
+       .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(338deg,  rgb(163 24 69), #5c0a25);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.3s;
+   
+}
+nav .animation{
+    position:absolute;
+    height:100%;
+    background-color: #ddd;
+    z-index: 0;
+top:0px;
+}
+
+  
+
+
+
+
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 22px 30px 13px 32px;
+    text-decoration: none;
+    font-size: 14.8px;
+    color: #ffffff;
+    display: flex;
+    transition: 0.3s;
+    margin-left: 27px}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #ffffff00; 
+  background-color: rgba(255, 255, 255, 0);
+border-radius:60px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: fixed;
+    top: 30px;
+    right: 25px;
+    font-size: 80px;
+    color: transparent;
+    margin-left: 50px;
+   
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .4s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  
+}</style>
+
+    <link rel="preload" href="assets/font/assets_font_latobold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/font/assets_font_latoregular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/font/assets_font_montserratbold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/font/assets_font_montserratregular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/font/assets_font_overpassblack.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/font/assets_font_overpassregular.ttf" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="custom.css" type="text/css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+<!-- Bootstrap CSS FOR CHECKIN-MENU-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" color:="black">
+     <link rel="stylesheet" href="custom.css" type="text/css">
+    <link rel="stylesheet" href="assets/styles.css?a=1642412408">
+    <link rel="stylesheet" href="custom.css" type="text/css">
+    <script src="assets/js/html5-qrcode.min.js"></script>
+    <script src="assets/js/db_locations.js?a=1642412408"></script>
+    <script src="assets/js/locations_search.js?a=1642412408"></script>
+    <script src="assets/js/nocheckin.js?a=1642412408"></script>
+ 
+ <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+  
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+  
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+    <link id="shortcut_link" rel="shortcut icon" href="assets/img/qld/launcher.png">
+    <link id="shortcut_link_apple" rel="apple-touch-icon" href="assets/img/qld/launcher.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1.0, user-scalable=no, viewport-fit=cover">
+
+    <meta id="web_app_title" name="apple-mobile-web-app-title" content="Check In Qld">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">   
+        <title>Check In Qld</title>
+    </head>
+
+    <body class="qld" style="text-align:center">
+        <div class="main">
+            <div id="step_splash" class="step hidden">
+
+            </div>
+
+            <div id="step_get_started" class="step hidden">
+                <style>
+                    body {
+                      background-color: black;
+                      font-family: LATOBOLD;
+                    }
+                    
+                    .glow {
+                      font-size: 80px;
+                      color: #fff;
+                      text-align: center;
+                      animation: glow 1s ease-in-out infinite alternate;
+                    }
+                    
+                    @-webkit-keyframes glow {
+                      from {
+                        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #d84b0a18, 0 0 40px #e67416, 0 0 50px #ec691d, 0 0 60px #a72c07, 0 0 70px #da7e15e5;
+                      }
+                      
+                      to {
+                        text-shadow: 0 0 20px #fff, 0 0 30px #df6d10, 0 0 40px #dd6e13, 0 0 50px #e27a18, 0 0 60px #df631c, 0 0 70px #921f10, 0 0 80px #cc6919;
+                      }
+                    }
+                    </style>
+                    </head>
+                    <body>
+                    
+                    <h1 class="glow">CHECK IN QLD</h1>
+                          
+                    <h1 class="glow">ANON93</h1>
+                <div class="margin-top-1">
+               
+                    <br> <select id="settings_state" style="margin-top:30px;">
+                        <option value="act">ACT</option>
+                        <option value="qld">QLD</option>
+                        <option value="nt">NT</option>
+                        <option value="tas">TAS</option>
+                    </select>
+                </div>
+
+                <div class="margin-top-1">
+                    Use QR Scanner
+                    <br>
+                    <select id="settings_use_scanner">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <a style="line-height:1;">**THIS APP WILL BE UPDATED AS OFTEN AS POSSIBLE </a><a>
+  
+                    </a> KEEP A HABIT OF ADDING IT TO "HOME SCREEN" EVERY FEW DAYS FOR UPDATED VERSION**
+                  
+                    <b style="font-size: 12px;
+                    margin-left: -110px;
+                    position: absolute;
+                    margin-top: 40px;
+                    color: orange;
+                    font-family: latobold;">Updated 19/03/2022</b> 
+                </div>
+         
+
+                <div class="margin-top-1">
+                  
+                    <br>
+                    <input id="settings_first_name" type="text" placeholder="First Name">
+                </div>
+
+                <div class="margin-top-1">
+              
+                    <br>
+                    <input id="settings_last_name" type="text" placeholder="Last Name" style="margin-top: -40px">
+                </div>
+
+                <div class="margin-top-1">
+                
+                    <br>
+                    <input id="settings_phone" type="text" placeholder="Phone" style="margin-top: -50px">
+                </div>
+
+                <div class="margin-top-1">
+                    
+                    <br>
+                    <input id="settings_email" type="text" placeholder="Email">
+                </div>
+
+                <div class="margin-top-1">
+                   
+                    <br>
+                    <input id="settings_dob" type="date" placeholder="DOB">
+                </div>
+
+                <div class="margin-top-1">
+                   
+                    <br>
+                    <input id="settings_vaxxed_date" type="date" placeholder="VACDATE">
+                </div>
+                   <ul style="margin-left: -40px"> Latest VACCINE batch INFO found </ul>
+                   <li><a href="https://www.howbadismybatch.com/pfizer.html">HERE</a></li>
+                    
+                
+                <div class="margin-top-2">
+                    <a id="save_settings_link" href="#" onclick="saveSettings(); return false;" class="btn" style="background-image: linear-gradient(45deg, #0000008f, transparent);">Save Settings</a>
+                    <a id="delete_settings_link" href="#" onclick="if (confirm('Please confirm. This will delete your details and locations stored on your device.')) { resetApp(); } return false;" class="margin-top-1 btn" style="    background-image: linear-gradient(45deg, #0000008f, transparent);
+                    background-image: linear-gradient(45deg, red, #540909d9);
+                    box-shadow: 0px 0px 0px 6px #494949d9">Reset App</a>
+                </div>
+            </div>
+
+            <div id="step_check_in_now" class="step">
+      
+      <!--HOMESCREEN-IMAGES-->      
+            <img class="img-menu1" src="assets/img/menu1.png" style=" 
+       position: absolute;
+    margin-bottom: 0px;
+    width: 23px;
+    height: 20px;
+    border-radius: 20px;
+    margin-top: 60px;
+    margin-left: -180px;">
+
+<img class="img-clock" src="assets/img/clock.png" style=" 
+ position: absolute;
+    margin-bottom: 0px;
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+    margin-top: 58px;
+    margin-left: 154px;">
+
+
+<style>/* Dropdown Button */
+    .dropbtn {
+        margin-top: 180px;
+    background-color: #3498db00;
+    color:#64032200 ;
+    margin-left: -90px;
+    height: 5px;
+    width: 100px;
+    padding: 16px;
+    position: fixed;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+    
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #fffffff5;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        position: fixed;
+    color: rgb(118 6 44);
+    padding: 30px 20px;
+    box-shadow: 20px 20px 20px #00000075;
+    text-decoration: none;
+    display: block;
+    background-color: #ffffff;
+    margin-top: 110px;
+    height: 125px;
+    margin-left: -110px;
+    border-radius: 20px;
+    
+}
+
+
+
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: rgb(255, 255, 255)}
+    
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {display:block;}</style>
+      <!--FREQUANT GUESTS ERROR-->
+      
+            
+              <!--SIDEMENU-->
+              <div id="mySidenav" class="sidenav" style="">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="margin-top: 170px;">×</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="margin-top: 350px;">×</a>
+
+
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">ERROR</button>
+                        <div id="myDropdown" class="dropdown-content">
+                          <a href="#" style="5px 15px 30px 5px black">Error Loading. Please try again soon.</a>
+                          <a href="#" style="color: #1845d0;
+                          height: 5px;
+                          border-radius: 60px;
+                          margin-left: 100px;
+                          margin-top: 168px;
+                          background-color: transparent;
+                          box-shadow: 30px 30px 30px transparent;">OK</a>
+                           <div class="dropdown4">
+                            <button onclick="myFunction()" class="dropbtn">ERROR</button>
+                            <div id="myDropdown" class="dropdown-content">
+                              <a href="#" style="5px 15px 30px 5px black">Error Loading. Please try again soon.</a>
+                              <a href="#" style="color: #1845d0;
+                              height: 5px;
+                              border-radius: 60px;
+                              margin-left: 100px;
+                              margin-top: 168px;
+                              background-color: transparent;
+                              box-shadow: 30px 30px 30px transparent;">OK</a>
+                        </div>
+                      </div>
+                   
+                         
+                          
+                        </div>
+                      </div>
+
+                   <a style="background-color: rgb(255, 255, 255);
+                    width: 90%;
+                    margin-left: 15px;
+                    height: 55px;
+                    border-radius: 50px;
+                    margin-top: 4px;
+                    padding-left: 32px;
+                    margin-bottom: -5px;"></a>
+                   <a href="#" style="    margin-top: -120px;
+                   margin-bottom: -30px;
+                   position: absolute;
+                   margin-left: 80px;
+                   font-size: 18px;">Check In </a>
+                   <a style="margin-top: -120px;
+                   margin-bottom: -30px;
+                   color: #ef7812;
+                   position: absolute;
+                   margin-left: 155px;
+                   font-size: 18px;">Qld </a>
+                
+                <!--images for side menu-->
+                <img class="img-home" src="assets/img/hometop.png" style=" 
+            position: absolute;
+    margin-bottom: 0px;
+    width: 27px;
+    height: 30px;
+    border-radius: 50px;
+    margin-top: -33px;
+    margin-left: -126px; ">     <a href="#" style="margin-top: -60px; color: maroon;">Home</a>
+         
+         <img class="img-but9" src="assets/img/but9.png" style=" 
+      position: absolute;
+    margin-bottom: 0px;
+    width: 38px;
+    height: 37px;
+    border-radius: 50px;
+    margin-top: 16px;
+    margin-left: -135px;">             
+                    
+                <a href="#" onclick="showStep('step_scan'); return false;" style="margin-left:25px;">Check In </a>
+                     
+                    <img class="img-butn8" src="assets/img/butn8.png" style=" 
+   position: absolute;
+    margin-bottom: 0px;
+    width: 35px;
+    height: 36px;
+    border-radius: 20px;
+    margin-top: 17px;
+    margin-left: -133px; "><a href="#">Profile</a>
+                     
+                    <img class="img-but7" src="assets/img/but7.png" style=" 
+   position: absolute;
+    margin-bottom: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 17px;
+    margin-left: -131px; "><a href="#">History</a>
+                   
+                   
+                   <img class="img-but6" src="assets/img/but6.png" style=" 
+   position: absolute;
+    margin-bottom: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 17px;
+    margin-left: -131px; "><a href="#">Frequent Guests</a>
+                    
+                    <a id="view_cert_link_get_startedd" href="#" onclick="showCert(-1); return false;">
+                        <img class="img-but2" src="assets/img/butn2.png" style="
+                     position: absolute;
+    margin-left: -33px;
+    margin-top: -5px;
+    width: 30px;
+    height: 30px;
+    margin-left: -33px;">COVID-19 Digital Certificate</a>
+                  
+                    <img class="img-but4" src="assets/img/but4.png" style=" 
+             position: absolute;
+    margin-bottom: 0px;
+    width: 26px;
+    height: 27px;
+    border-radius: 8px;
+    margin-top: 38px;
+    margin-left: -129px; "><a href="#" style="margin-top: 15px;
+    margin-bottom: 15px;">Latest news and Alerts</a>
+                  
+  <a href="#">Settings</a> <div class="arrow"><a href="#" onclick="showStep('step_get_started'); return false;"><img src="assets/img/but3.png" class="arrow"></a></div>
+                   
+                   <img class="img-but2" src="assets/img/but2.png" style=" 
+     position: absolute;
+    margin-bottom: 0px;
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    margin-top: 17px;
+    margin-left: -132px;"><a href="#">Privacy policy</a>
+                   
+                    <img class="img-but1" src="assets/img/but1.png" style=" 
+                position: absolute;
+    margin-bottom: 0px;
+    width: 34px;
+    height: 34px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: -135px; "><a href="https://z.zz.fo/I3jCE.html">About</a>
+             <div class="animation-start-home"></div>   
+             <nav>
+                    <img class="img-qldline" src="assets/img/line.png" style=" 
+   position: absolute;
+    margin-bottom: 0px;
+    width: 250px;
+    height: 10px;
+    border-radius: 8px;
+    margin-top: -180px;
+    margin-left: -130px ">
+<img class="img-qldline" src="assets/img/line.png" style=" 
+ position: absolute;
+    margin-bottom: 0px;
+    width: 250px;
+    height: 10px;
+    border-radius: 8px;
+    margin-top: -250px;
+    margin-left: -130px;  ">
+<!--images for sidemenu-->
+                  </nav></div>
+                  
+  <!-- Use any element to open the sidenav -->
+<span onclick="openNav()" style="margin-left: -160px;
+    position: fixed;
+    font-size: 40px;
+    top: 60px;color: transparent;">open</span>
+                  
+                  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+                  <div id="main">
+                    <!--add content-->
+                  </div>
+               
+
+                <div>
+                    <img id="img_check_in_now" src="assets/img/qld/check_in_now.png">
+                </div>
+
+                <div>
+                    <h2>
+                        <a id="view_cert_link_get_started" href="#" onclick="showCert(-1); return false;">
+                            <img class="img-cert-tick" src="assets/img/cert_tick.gif" style="    position: relative; margin-bottom: 0px;">
+                            <span class="first_name">ANON</span> <span class="last_name">93</span>
+                        </a>
+                    </h2>
+                    <span class="phone">0404040404</span><br>
+                    <span class="email">Noemail@hotmail.com</span><br>
+                </div>
+
+                <a href="#" onclick="showStep('step_scan'); return false;" class="btn margin-top-3">Check In Now</a>
+ <!--POPUP-->  
+ <style>
+    /* Popup container - can be anything you want */
+    .popup {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* The actual popup */
+    .popup .popuptext {
+      visibility: hidden;
+      width: 160px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -80px;
+    }
+    
+    /* Popup arrow */
+    .popup .popuptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+    
+    /* Toggle this class - hide and show the popup */
+    .popup .show {
+      visibility: visible;
+      -webkit-animation: fadeIn .3s;
+      animation: fadeIn .3s;
+    }
+    
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+      from {opacity: 0;} 
+      to {opacity: 1;}
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+    </style>
+    
+    
+    
+
+    
+    <div class="popup" onclick="myFunction()" style="position: fixed;
+    margin-left: -110px;
+    margin-top: 40px;
+    color: transparent;">Click me to toggle the popup!
+      <span class="popuptext" id="myPopup" style="
+width: 387px;
+left: -.5px;
+height: 800px;
+margin-bottom: -235px;
+"> <img class="img-home" src="assets/img/backgrd.png" style=" 
+     position: absolute;
+    margin-bottom: 0px;
+    width: 377px;
+    height: 824px;
+    border-radius: 0px;
+    margin-top: -40px;
+    margin-left: -192px;
+"></span>
+
+
+</div>
+
+    
+    <script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>          
+<!--POPUP--> 
+                <div id="last_checkin" class="margin-top-2-5">Last Check In: <span id="last_checkin_location">coles&lt;br /&gt;</span> about 16 hours ago</div>
+
+                <div class="bottom">
+                    <a id="get_vaxxed_link" href="https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/protect-yourself-others/covid-19-vaccine/book/vaxgen.html" class="btn btn-transparent">Get your vaccine <i id="get_vaxxed_arrow"></i></a>
+               </div>
+            </div>
+
+            <div id="step_scan" class="step hidden">
+                <div id="qr_reader"></div>
+                <img class="img-light" src="assets/img/light.png" style="    position: absolute;
+                margin-bottom: 0px;
+                width: 40px;
+                height: 23px;
+                border-radius: 20px;
+                margin-top: -755px;
+                margin-left: 140px;">
+                <div class="scan-wrap">
+                    <h4 id="scan_qr_code_title" class="margin-top-1-5">Scan QR Code</h4>
+
+                    <div class="bottom-scan">
+                        <a href="#" onclick="showManual(); return false;" class="btn">Enter Code Manually</a>
+                        <a id="done_link" href="#" onclick="showStep('step_check_in_now'); return false;" class="btn btn-transparent" style="margin-bottom:1rem;border-radius:8px;">Cancel</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step_manual" class="step hidden" style="background-color: black;">
+
+                <div>
+                    <img class="img_menu">
+                </div>
+             <!--MANUAL-CHECKIN-->
+                <div id="location_code_container" class="margin-top-1">
+                    <a style="padding-left:10px;font-size: 22px;color: white;margin-top: 2rem;">Enter Venue Code</a>
+                    <a style="padding-top: 10px;color: white;">
+                 
+                     <img style="padding-left:0px;" font-family="latoregular;" font-size="25px;">6-digit short code located on poster
+                     
+                     
+                     <div style="background-color:white;width:78%;margin-left:31px;height:85px;border-radius:8px;margin-top:40px;padding-left:32px;margin-bottom:26px">
+                         <input id="location_code_1" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                         <input id="location_code_2" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                         <input id="location_code_3" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                         <input id="location_code_4" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                         <input id="location_code_5" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                         <input id="location_code_6" type="number" maxlength="1" class="text-primary-dark location-code-input" placeholder="" onclick="this.value = '';" onkeydown="return handleLocationCodeKeyDown(event);" onkeyup="handleLocationCodeInput(event);">
+                     </div>
+                  
+                     <img class="img-down" src="assets/img/down.png" style="position: absolute;margin-bottom: -40px;width: 15px;border-radius: 8px;margin-top: -55px;margin-left: -87px;">
+                     <input id="location_code" type="hidden" value="">
+                 </a></div><a style="padding-top: 10px;">
+                 </a><a id="done_link" href="#" class="btn" style="margin-top: 2rem;border-radius:8px;">Continue</a>
+                 
+                 <a id="done_link" href="#" onclick="showStep('step_check_in_now'); return false;" class="btn" style="margin-top:10px;background-color: transparent;color:white;border-color:white;">Cancel</a>
+     <!--DROPDOWNMENU MANUALCHECKIN-->
+                 <div class="dropdown">
+         <button class="button btn-success 
+                 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="
+                margin-top: -275px;
+   height: 42px;
+   margin-left: -102px;
+   width: 42px;
+   border-radius: 8px;
+   border-color: white;
+   background-size: cover;
+   position: absolute;
+   color: transparent;
+   background-image: url(./assets/img/qlde.png); ">
+            <!--DROPDOWNMENU-MANUALCHECKIN--> 
+         </button>
+ 
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -48px; margin-left: -5px; padding-top: 1px; width: 190px;">
+             <li class="dropdown-item" style="padding-left:1px;">
+                 <img src="assets/img/qlde.png" width="40" height="40"> QLD</li>
+             <li class="dropdown-item" style="padding-left:1px;">
+                 <img src="assets/img/cbr.png" width="40" height="40"> ACT</li>
+             <li class="dropdown-item" style="padding-left:1px;">
+                 <img src="assets/img/taz.png" width="40" height="40"> TAS</li>
+             <li class="dropdown-item" style="padding-left:1px;">
+                 <img src="assets/img/ent.png" width="40" height="40"> NT</li>
+             </ul>   
+                              
+                     </div>
+
+                <div id="search_results" class="text-primary margin-top-1 margin-bottom-1">&nbsp;</div>
+
+                <div id="location_name_container" class="hidden margin-top-1">
+                    Enter Location Name
+                    <textarea id="location_name" type="text" autocomplete="off" onkeyup="autoCompleteLocationName(event);" placeholder="Woolworths"></textarea>
+                    <a id="save_location_link" href="#" onclick="saveLocation(); return false;" class="btn margin-top-1">Save</a>
+                </div>
+
+                <img id="img_unite" src="assets/img/qld/unite.png">
+            </div>
+
+            <div id="step_loading" class="step hidden">&nbsp;</div>
+
+            <div id="step_check_in" class="step hidden">
+
+                <div class="back-button-container">
+                    <a href="#" onclick="showStep('step_scan'); return false;"><i class="fas fa-arrow-left" style="margin-top:1.5rem;"></i></a>
+                </div>
+
+                <div>
+                    <img class="img_checkin" src="assets/img/qld/checkin.png">
+                </div>
+
+                <h4 class="muted"><span class="first_name">ANON</span>, you're checking into</h4>
+                <h3 class="location_name"></h3>
+
+                <div id="additional_check_in_container">
+                    <i id="additional_checkin_users" class="fas fa-user-friends"></i>
+                    <small style="margin-left: 1rem;" class="muted">Check in Additional People</small>
+                    <a href="#" onclick="showStep('step_guests_checkin'); return false;" style="float: right;"><i id="additional_checkin_toggle" class="fas fa-toggle-off"></i></a>
+                </div>
+
+                <div class="bottom">
+                    <a id="checkin_link" href="#" onclick="showStep('step_success'); return false;" class="btn">Check In</a>
+                </div>
+            </div>
+
+            <div id="step_guests_checkin" class="step hidden">
+
+                <div class="back-button-container">
+                    <a href="#" onclick="showStep('step_check_in'); return false;"><i class="fas fa-arrow-left" style="margin-top:2.3rem;"></i></a>
+                </div>
+
+                <h4 class="muted" style="padding-top: 4rem;"><span class="first_name">ANON</span>, you're checking into</h4>
+                
+                
+                <h5 class="location_name"></h5>
+
+                <div id="additional_check_in_bar">
+                    <i id="additional_check_in_bar_user" class="fas fa-user"></i>
+                    <a style="margin-left: 1rem;" href="#" onclick="showStep('step_new_guest_form'); return false;"><span class="muted">Tap to enter guest's name...</span></a>
+                    <i id="additional_check_in_bar_toggle" class="fa fa-toggle-on"></i>
+                </div>
+
+                <div id="frequent_guests_list_container">
+
+                    <div>
+                        <small>Frequent Guests</small>
+                    </div>
+
+                    <div id="frequent_guests_list">
+
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <a id="guest_checkin_link" href="#" onclick="showStep('step_success'); return false;" class="btn">Check In</a>
+                </div>
+            </div>
+
+            <div id="step_new_guest_form" class="step hidden">
+
+                <div class="back-button-container" style="position: relative;">
+                    <a href="#" onclick="showStep('step_guests_checkin'); return false;"><i class="fas fa-arrow-left" style="margin-top:2.3rem;"></i></a>
+                </div>
+
+                <h2 style="margin-top: 2rem;">New Guest</h2>
+
+                <div class="margin-top-1">
+                    First Name
+                    <br>
+                    <input id="guest_first_name" type="text" placeholder="John">
+                </div>
+
+                <div class="margin-top-1">
+                    Last Name
+                    <br>
+                    <input id="guest_last_name" type="text" placeholder="Doe">
+                </div>
+
+                <div class="margin-top-1">
+                    Date Of Birth
+                    <br>
+                    <input id="guest_dob" type="date" placeholder="05/11/1973">
+                </div>
+
+                <div class="margin-top-1">
+                    Vaccination Date
+                    <br>
+                    <small class="muted">Leave empty if not applicable</small>
+                    <br>
+                    <input id="guest_vaxxed_date" type="date" placeholder="05/11/2021">
+                </div>
+
+                <div class="margin-top-2">
+                    <a id="save_guest_link" href="#" onclick="saveGuest(); return false;" class="btn">Save Guest</a>
+                </div>
+            </div>
+
+            <div id="step_success" class="step hidden">
+
+                <audio id="success_audio" src="assets/assets_audio_checkinsuccess.mp3"></audio>
+
+                <div>
+                    <img id="img_tick" src="assets/img/qld/tick.png">
+                </div>
+
+                <h4 class="muted">Thanks, you've checked in at</h4>
+                <h3 class="location_name"></h3>
+
+                <div id="success_patrons_container">
+
+                </div>
+
+                <div class="bottom">
+                    <p id="thank_you_message">Thank you for supporting COVID-19 contact tracing efforts and doing your bit to keep <span id="thank_you_folks">Queenslanders</span> safe.</p>
+
+                    <a id="done_link" href="#" onclick="showStep('step_check_in_now'); return false;" class="btn">Done</a>
+                </div>
+            </div>
+
+            <div id="step_cert" class="step hidden" onclick="hideCert(); return false;">
+                
+                
+                
+                <div class="box" onclick="return false;">
+               
+                  
+                    <!--CERTIFICATE TOP IMAGES MENU/DOTS-->
+                    <b style="margin-left: 46px;
+                    font-size: 16.7px;
+                    position: absolute;
+                    margin-top: -43px;
+                    font-family: latobold;">COVID-19 digital certificate</b>
+                   
+                   <img class="img-menuuu" src="assets/img/menuuu.png" style="position: absolute;
+                    margin-bottom: -40px;
+                    width: 24px;
+                    border-radius: 8px;
+                    margin-top: -42px;
+                    margin-left: 0px;
+                    ;">
+                    <img class="img-dots" src="assets/img/dots.png" style="position: absolute;
+                    margin-bottom: -40px;
+                    width: 26px;
+                    border-radius: 8px;
+                    margin-top: -42px;
+                    margin-left: 304px;">
+                    <!--CERTIFICATE TOP IMAGES MENU/DOTS-->
+                   
+                    <div class="tophalf">
+                      <img src="assets/img/cert_tick.gif" class="tick">
+                      <div class="cov-dig">
+                        <div class="cov-dig-large">COVID-19</div>
+                        <div class="cov-dig-small">digital certificate</div>
+                      </div>
+                    </div>
+                    <div class="bottomhalf">
+                      <div class="bottom-field">
+                        <div class="descriptor">NAME</div>
+                        <div class="info" id="text-name">
+                            <span class="first_name">ANON</span> <span class="last_name">93</span>
+                        </div>
+                      </div>
+                      <div class="bottom-field">
+                        <div class="descriptor">DATE OF BIRTH</div>
+                        <div class="dob info" id="text-dateofbirth">Jun 17, 1990</div>
+                      </div>
+                      <div class="bottom-field2 validfrom">
+                        <div class="descriptor">VALID FROM</div>
+                        <div class="info2 vaxxed_date" id="text-validfrom">Dec 12, 2021</div>
+                      </div>
+
+                      <div class="clock" id="txt">Mar 20 2022, 11:16:04 PM</div>
+                      <div class="disclaimer">This Individual has received all required COVID-19 vaccinations.</div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    
+</body></html>
